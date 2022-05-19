@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="main-header-content">
+        <div class="addressbook-detail-text">
+            Address Book Details
+            <!-- <div class="contact-count">{{addressbook.data.length}}</div> -->
+        </div>
+        <button (click)="onAddUser()" class="add-button">
+            <img src="../../assets/icons/plus_symbol.svg" alt="">Add Person
+        </button>
+    </div>
+</div>
+<div class="main-content">
+    <div class="table-main">
+        <table id="table-display" class="table">
+            <tr>
+                <!--Table header-->
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+
+            </tr>
+            <tr *ngFor="let add of addressbook.data">
+                <td>{{add.id}}</td>
+                <td>{{add.firstName | uppercase}}</td>
+                <td>{{add.lastName | uppercase}}</td>
+                <td>{{add.address}}</td>
+                <td>{{add.city}}</td>
+                <td>{{add.state}}</td>
+                <td>{{add.zip}}</td>
+                <td>{{add.phoneNumber}}</td>
+
+                <!--To update and delete an record from the database-->
+                <td>
+                    <img src="../../assets/icons/delete.svg" alt="delete" (click)="deleteAddressRecord(add.Id)">
+                    &nbsp;
+                    <img src="../../assets/icons/edit.svg" alt="edit" (click)="editAddressRecord(add.Id)">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

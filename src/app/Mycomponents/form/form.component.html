@@ -1,0 +1,124 @@
+<div class="form-content">
+    <form #myForm="ngForm"  novalidate>
+      <div class="form-head">
+        <div class="form-head-text">Address Book Form</div>
+    
+        <a (click)="onDashboard()"><img class="form-head-image" src="../../assets/images/cancelButton.png"
+            alt="logo"></a>
+      </div>
+      <div class="form-constrains">
+        <div class="row-content">
+          <label for="firstName" class="label text">First Name</label>
+          <br>
+          <input type="text" class="input" pattern="^[a-zA-Z]{4,}$" id="firstName" #firstName="ngModel" name="firstName" placeholder="Your first name.."  required [(ngModel)]="addressbook.firstName">
+          <span class="error" *ngIf="firstName.errors?.['pattern']"><h5>First Name is Invalid </h5></span> 
+        </div>
+        <div class="row-content">
+          <label for="lastName" class="label text">Last Name</label>
+          <br>
+          <input type="text" class="input" pattern="^[a-zA-Z]{4,}$" id="lastName" #lastName="ngModel" name="lastName" placeholder="Your last name.."  required [(ngModel)]="addressbook.lastName">
+          <span class="error" *ngIf="lastName.errors?.['pattern']"><h5>Last Name is Invalid </h5></span> 
+        </div>
+        <div class="row-content">
+          <label for="email" class="label text">Email</label>
+          <br>
+          <input type="text" class="input" email id="email" #email="ngModel" name="email" placeholder="Your Email Id..." required [(ngModel)]="addressbook.email">
+          <span class="error" *ngIf="email.errors?.['email']"><h5>Email is Invalid </h5></span> 
+        </div>
+        <div class="row-content">
+          <label for="phoneNumber" class="label text">Phone Number</label>
+          <br>
+          <input type="tel" class="input" id="phoneNumber" pattern="^[1-9]{1}[0-9]{9}$" #number="ngModel" name="phoneNumber" placeholder="Your phone number.."
+             required [(ngModel)]="addressbook.phoneNumber">
+            <span class="error" *ngIf="number.errors?.['pattern'] && number.touched"><h5>Phone Number should be of 10 digits </h5></span>
+        </div>
+        <div class="row-content">
+          <label for="address" class="label text">Address</label>
+          <br>
+          <textarea name="address" id="address" placeholder="Your address.."  required [(ngModel)]="addressbook.address"></textarea>
+          <span class="error"></span>
+        </div>
+        <div class="row-content">
+          <div class="column-constrains">
+            <div class="column-content">
+              <label for="city" class="label text">City</label>
+              <br>
+              <select name="city" id="city" #city="ngModel"  required [(ngModel)]="addressbook.city">
+                <option selected value="default">Select City</option>
+                <option value="Gwalior">Gwalior</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Surat">Surat</option>
+              </select>
+             
+
+            </div>
+            <div class="column-content">
+              <label for="state" class="label text">State</label>
+              <br>
+              <select name="state" id="state" #state="ngModel"  required [(ngModel)]="addressbook.state">
+                <option selected  value="default">Select State</option>
+                <option value="MadhyaPradesh">Madhya Pradesh</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+         
+            </div>
+            <div class="column-content">
+              <label for="zip" class="label text">Zip code</label>
+              <br>
+              <input type="text" class="input zipcode" id="zip" pattern="^[1-9]{1}[0-9]{5}$" #zip="ngModel" name="zip"  placeholder="Your zipcode.." required [(ngModel)]="addressbook.zip">
+              <!-- <span class="error" *ngIf="zip.errors?.['pattern']"><h5>Invalid Zip Code</h5></span>  -->
+
+           </div>
+          </div>
+        </div>
+        <div class="buttons-contact">
+          <button type="button" class="button button-cancel" id="cancelButton" (click)="onDashboard()">Cancel</button>
+          <button type="button" class="button button-submit" id="submitButton"  (click)="onAddContact()" *ngIf="this.Id ==null">Add</button>
+          <button type="button" class="button button-submit" id="submitButton" (click)="onUpdateContact()" *ngIf="this.Id !=null">Update</button>
+          <button type="reset" class="button button-reset" id="resetButton" >Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
