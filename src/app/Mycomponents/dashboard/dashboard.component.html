@@ -2,7 +2,7 @@
     <div class="main-header-content">
         <div class="addressbook-detail-text">
             Address Book Details
-            <!-- <div class="contact-count">{{addressbook.data.length}}</div> -->
+            <div class="contact-count">{{addressbook.data.length}}</div>
         </div>
         <button (click)="onAddUser()" class="add-button">
             <img src="../../assets/icons/plus_symbol.svg" alt="">Add Person
@@ -37,9 +37,9 @@
 
                 <!--To update and delete an record from the database-->
                 <td>
-                    <img src="../../assets/icons/delete.svg" alt="delete" (click)="deleteAddressRecord(add.Id)">
+                    <img src="../../assets/icons/delete.svg" alt="delete" (click)="deleteAddressRecord(add.id)">
                     &nbsp;
-                    <img src="../../assets/icons/edit.svg" alt="edit" (click)="editAddressRecord(add.Id)">
+                    <img src="../../assets/icons/edit.svg" alt="edit" (click)="editAddressRecord(add.id)">
                 </td>
             </tr>
         </table>

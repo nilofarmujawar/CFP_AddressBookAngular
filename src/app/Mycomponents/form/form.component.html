@@ -3,8 +3,8 @@
       <div class="form-head">
         <div class="form-head-text">Address Book Form</div>
     
-        <a (click)="onDashboard()"><img class="form-head-image" src="../../assets/images/cancelButton.png"
-            alt="logo"></a>
+        <!-- <a (click)="onDashboard()"><img class="form-head-image" src="../../assets/images/cancelButton.png"
+            alt="logo"></a> -->
       </div>
       <div class="form-constrains">
         <div class="row-content">
@@ -108,15 +108,15 @@
               <label for="zip" class="label text">Zip code</label>
               <br>
               <input type="text" class="input zipcode" id="zip" pattern="^[1-9]{1}[0-9]{5}$" #zip="ngModel" name="zip"  placeholder="Your zipcode.." required [(ngModel)]="addressbook.zip">
-              <!-- <span class="error" *ngIf="zip.errors?.['pattern']"><h5>Invalid Zip Code</h5></span>  -->
+          
 
            </div>
           </div>
         </div>
         <div class="buttons-contact">
           <button type="button" class="button button-cancel" id="cancelButton" (click)="onDashboard()">Cancel</button>
-          <button type="button" class="button button-submit" id="submitButton"  (click)="onAddContact()" *ngIf="this.Id ==null">Add</button>
-          <button type="button" class="button button-submit" id="submitButton" (click)="onUpdateContact()" *ngIf="this.Id !=null">Update</button>
+          <button type="button" class="button button-submit" id="submitButton"  (click)="onAddContact()">Add</button>
+        
           <button type="reset" class="button button-reset" id="resetButton" >Reset</button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { AddressbookServiceService } from 'src/app/addressbook-service.service';
 
 @Component({
@@ -10,9 +10,8 @@ import { AddressbookServiceService } from 'src/app/addressbook-service.service';
 export class DashboardComponent implements OnInit {
 
    
- 
     //injected dependencies which is required to render view properly 
-  constructor(private router: Router, private service: AddressbookServiceService,private route: ActivatedRoute) { }
+  constructor(private router: Router, private service: AddressbookServiceService) { }
 
   addressbook: any;
 
@@ -31,16 +30,17 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(["form"]);
   }
 
-  //call deleteAddressBookById method of service to delete address book details of that particular id
-  deleteAddressRecord(Id: number) {
-    this.service.deleteAddressBookById(Id).subscribe(data => { 
-       //when a user get deleted from databse it will print data deleted successfully in console
-      console.log("Data Deleted Sucessfully") });
-    window.location.reload()
-  }
-
-   //navigates page to update which has form component to load existing employee record for updation
+    //call deleteAddressBookById method of service to delete address book details of that particular id
+    deleteAddressRecord(Id: number) {
+      this.service.deleteAddressBookById(Id).subscribe(data => { 
+         //when a user get deleted from databse it will print data deleted successfully in console
+        console.log("Data Deleted Sucessfully") });
+      window.location.reload()
+    }
+  
+    //navigates page to update which has form component to load existing employee record for updation
   editAddressRecord(Id: number) {
     this.router.navigate(["update", Id]);
   }
+  
 }

@@ -8,8 +8,6 @@ const routes: Routes = [
   {path:"dashboard", component:DashboardComponent},
   {path:"form",component:FormComponent},
   {path:"update/:Id",component:FormComponent},
-  {path:"dashboard/:Id",component:DashboardComponent},
-
   {path:"**", component:DashboardComponent}
 ];
 
