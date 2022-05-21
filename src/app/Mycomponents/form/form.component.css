@@ -142,6 +142,7 @@
   
   .buttons-contact {
     margin-top: 40px;
+    margin-right: 80mm;
     display: flex;
     justify-content: flex-end;
   }
